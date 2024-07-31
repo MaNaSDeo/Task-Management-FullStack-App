@@ -2,6 +2,7 @@ import express, { type Express, type Request, type Response } from "express";
 import * as dotenv from "dotenv";
 import morgan from "morgan";
 import authRouter from "./routes/v1/auth.route";
+import taskRoutes from "./routes/v1/task.route";
 
 import connectDB from "./db/connect";
 
@@ -17,6 +18,7 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 app.use("/api/v1/auth", authRouter);
+app.use("/api/v1/task", taskRoutes);
 
 const start = async (): Promise<void> => {
   try {
