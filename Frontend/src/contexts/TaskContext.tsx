@@ -45,7 +45,7 @@ export const TaskProvider: React.FC<{ children: React.ReactNode }> = ({
     setLoading(true);
     try {
       const response = await axios.get(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/tasks`,
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/tasks`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -63,7 +63,7 @@ export const TaskProvider: React.FC<{ children: React.ReactNode }> = ({
     if (!token) return;
     try {
       const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/tasks`,
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/tasks`,
         task,
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -79,7 +79,7 @@ export const TaskProvider: React.FC<{ children: React.ReactNode }> = ({
     if (!token) return;
     try {
       const response = await axios.put(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/tasks/${id}`,
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/tasks/${id}`,
         task,
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -95,7 +95,7 @@ export const TaskProvider: React.FC<{ children: React.ReactNode }> = ({
     if (!token) return;
     try {
       await axios.delete(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/tasks/${id}`,
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/tasks/${id}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
