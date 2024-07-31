@@ -1,6 +1,7 @@
 import express, { type Express, type Request, type Response } from "express";
 import * as dotenv from "dotenv";
 import morgan from "morgan";
+import cors from "cors";
 import authRouter from "./routes/v1/auth.route";
 import taskRoutes from "./routes/v1/task.route";
 
@@ -11,6 +12,7 @@ dotenv.config();
 const PORT = process.env.PORT || 5001;
 
 app.use(morgan("tiny"));
+app.use(cors({ origin: "*" }));
 app.use(express.json());
 
 app.get("/", (req: Request, res: Response) => {

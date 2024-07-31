@@ -3,7 +3,7 @@ import { isValidObjectId } from "mongoose";
 import { IUser } from "./User.model";
 
 export interface ITask extends Document {
-  user: IUser["_id"];
+  user: Schema.Types.ObjectId;
   title: string;
   description?: string;
   status: "To do" | "In progress" | "Under review" | "Finished";

@@ -5,8 +5,11 @@ import {
   deleteTask,
 } from "../../controllers/task.controller";
 import express from "express";
+import authMiddleware from "../../middleware/auth.middleWare";
 
 const router = express.Router();
+
+router.use(authMiddleware);
 
 router.get("/", getTasks);
 router.post("/", createTask);
